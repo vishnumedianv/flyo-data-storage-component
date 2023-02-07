@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+}
+
+:root {
+  --pale-blue: hsl(243, 100%, 93%);
+  --grayish-blue: hsl(229, 7%, 55%);
+  --dark-blue: hsl(228, 56%, 26%);
+  --very-dark-blue: hsl(229, 57%, 11%);
+}
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background: hsl(229, 57%, 11%);
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  width: 60%;
+  height: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.div1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 70%;
+  height: 100%;
+  flex-grow: 1fr;
+  background: var(--dark-blue);
+  border-top-right-radius: 100px 100px;
+  border-top-left-radius: 8px 5px;
+  border-bottom-left-radius: 8px 5px;
+  border-bottom-right-radius: 8px 5px;
+}
+
+.logo,
+.list {
+  width: 80%;
+  display: flex;
+  justify-content: start;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+li {
+  background: var(--very-dark-blue);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.div2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--dark-blue);
+  padding: 20px 30px;
+  flex-grow: 2fr;
+  width: 100%;
+  height: 60%;
+  border-radius: 8px;
+  gap: 15px;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1rem;
+  color: white;
+}
+span {
+  font-weight: 700;
+}
+p {
+  font-weight: 400;
+  font-size: 1rem;
+  color: white;
+}
+.detail {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+}
+.data-range {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.progress-bar {
+  width: 100%;
+  position: relative;
+}
+
+.bar {
+  background-color: hsl(229, 57%, 11%);
+  width: 100%;
+  padding: 2px;
+  border-radius: 20px;
+}
+
+.bar .insidebar {
+  border-radius: 20px;
+  width: 81.5%;
+  background-image: linear-gradient(
+    to right,
+    hsl(6, 100%, 80%),
+    hsl(335, 100%, 65%)
+  );
+  padding: 1px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* tooltip */
+.progress-bar .tooltiptext {
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 60px;
+  background-color: white;
+  color: var(--grayish-blue);
+  font-weight: 700;
+  font-size: small;
+  text-align: center;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  position: absolute;
+  z-index: 2;
+  bottom: 200%;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border: none;
+}
+
+.left-data {
+  font-weight: 700;
+  font-size: 25px;
+  color: var(--very-dark-blue);
+  margin-right: 5px;
+}
+
+.progress-bar .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 98%;
+  right: 0;
+  z-index: 1;
+  /* margin-left: -5px; */
+  border-width: 7px;
+  border-style: solid;
+  border-color: white white transparent transparent;
+}
+
+.progress-bar:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.bar .insidebar .whiteball {
+  height: 10px;
+  background-color: white;
+  width: 10px;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    flex-wrap: wrap;
+    min-width: 320px;
+    width: 80%;
+  }
+
+  .bg {
+    width: 100%;
+  }
+  .bg-img {
+    width: 100%;
+    content: url(./images/bg-mobile.png);
+  }
+  .div1,
+  .div2 {
+    width: 100%;
+  }
+
+  .progress-bar .tooltiptext {
+    top: 220%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-bottom-right-radius: 6px;
+  }
+  .progress-bar .tooltiptext::after {
+    border-style: none;
+  }
+}
